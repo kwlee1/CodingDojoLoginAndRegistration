@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login & Reg | Home</title>
+</head>
+<body>
+    <h1>Registration</h1>
+    <p>{{errors.fn}}</p>
+    <p>{{errors.ln}}</p>
+    <p>{{errors.email}}</p>
+    <p>{{errors.pw}}</p>
+    <p>{{errors.cpw}}</p>
+    <form action='/register' method='post'>
+        {% csrf_token %}
+        <table>
+            <th><tr><td></td><td></td></tr></th>
+            <tr>
+                <td>First Name:</td><td><input type="text" name="fn"><br></td>
+            </tr>
+            <tr>
+                <td>Last Name:</td><td><input type="text" name="ln"><br></td>
+            </tr>
+            <tr>
+                <td>Email:</td><td><input type="text" name="email"><br></td>
+            </tr>
+            <tr>
+                <td>Password:</td><td><input type="password" name="pw"><br></td>
+            </tr>
+            <tr>
+                <td>Confirm Password:</td><td><input type="password" name="cpw"><br></td>
+            </tr>
+        </table>
+
+        <input type="submit" value="Register">
+    </form><br>
+    <h1>Login</h1>
+    <p>{{errors.login}}</p>
+    <form action='/login' method='post'>
+        {% csrf_token %}
+        <table>
+            <th><tr><td></td><td></td></tr></th>
+            <tr>
+                <td>Email: </td><td><input type="text" name="email"></td>
+            </tr>
+            <tr>
+                <td>Password: </td><td><input type="password" name="pw"></td>
+            </tr>
+        </table>
+        <input type="submit" value="Login">
+    </form><br>
+</body>
+</html>
